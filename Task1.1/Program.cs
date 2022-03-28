@@ -14,10 +14,10 @@ Console.Write("Input b = ");
 int b = int.Parse(Console.ReadLine());
 
 int temp = a;
-int a3 = 0;
+int a3 = 0;// number in ternary numeral system
 int k = 1;
 
-while (temp > 0) //converting into ternary numeral system
+while (temp > 0) //conversion to ternary numeral system
 {
     a3 += (temp % 3) * k;
     temp /= 3;
