@@ -9,67 +9,39 @@
 using System;
 
 Console.Write("Input a = ");
-int a = int.Parse(Console.ReadLine());
+var a = int.Parse(Console.ReadLine());
 Console.Write("Input b = ");
-int b = int.Parse(Console.ReadLine());
+var b = int.Parse(Console.ReadLine());
 
-int temp = a;
-int a3 = 0;// number in ternary numeral system
-int k = 1;
-
-while (temp > 0) //conversion to ternary numeral system
+if (a > b)
 {
-    a3 += (temp % 3) * k;
-    temp /= 3;
-    k *= 10;
+    a += b;
+    b = a - b;
+    a -= b;
 }
 
 while (a <= b)
 {
-    temp = a3;
-    amountOf2(temp);//counting the amount of 2 in a number
-    a3 = addOne(a3);//adding 1 to the number in ternary numeral system
+    AmountOf2(a);
     a++;
 }
 
-void amountOf2(int number)
+void AmountOf2(int number)
 {
-    int count = 0;
+    number = Math.Abs(number);
+    
+    var count = 0;
     while (number > 0)
     {
-        if (number % 10 == 2)
+        if (number % 3 == 2)
         {
             count++;
         }
-        number /= 10;
+        number /= 3;
     }
+
     if (count == 2)
     {
-        Console.WriteLine($"{a}  {a3}");
+        Console.WriteLine(a);
     }
-}
-
-int addOne(int number3)
-{
-    temp = number3;
-    for (int i = 10; i <= k; i *= 10)
-    {
-        if ((temp % 10 == 2) && (temp / 10 == 0))
-        {
-            number3 = k;
-            k *= 10;
-            return number3;
-        }
-        if (temp % 10 == 2)
-        {
-            number3 -= 2 * i / 10;
-        }
-        else
-        {
-            number3 += i / 10;
-            return number3;
-        }
-        temp /= 10;
-    }
-    return number3;
 }

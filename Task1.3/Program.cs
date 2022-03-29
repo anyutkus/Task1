@@ -10,22 +10,22 @@
 using System;
 
 Console.Write("Input number of elements: ");
-int n = int.Parse(Console.ReadLine());
+var n = int.Parse(Console.ReadLine());
 
-int[] numbers = new int[n];
+var numbers = new int[n];
 
-int min, max, minPosition, maxPosition;
-
-for (int i = 0; i < n; i++)
+for (var i = 0; i < n; i++)
 {
     Console.Write($"Input element {i}: ");
     numbers[i] = int.Parse(Console.ReadLine());
 }
 
-min = max = numbers[0];
-minPosition = maxPosition = 0;
+var min = numbers[0];
+var max = numbers[0];
+var minPosition = 0;
+var maxPosition = 0;
 
-for (int i = 0; i < n; i++)
+for (var i = 0; i < n; i++)
 {
     if (numbers[i] < min)
     {
@@ -39,11 +39,11 @@ for (int i = 0; i < n; i++)
     }
 }
 
-calculate(minPosition, maxPosition);
+Calculate(minPosition, maxPosition);
 
-void calculate(int a, int b)
+void Calculate(int a, int b)
 {
-    int sum = 0;
+    var sum = 0;
     if (a > b)
     {
         a += b;

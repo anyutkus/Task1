@@ -9,31 +9,30 @@
 using System;
 
 Console.Write("Input first 9 digits of ISBN: ");
-int a = int.Parse(Console.ReadLine());
+var a = int.Parse(Console.ReadLine());
 
-string result = a.ToString() + findLastNumber(a);
+var result = a.ToString() + FindLastNumber(a);
 
 Console.WriteLine(result);
 
-string findLastNumber(int number)
+string FindLastNumber(int number)
 {
-    int sum = 0;
+    var sum = 0;
 
-    for (int i = 2; i <= 10; i++)
+    for (var i = 2; i <= 10; i++)
     {
         sum += number % 10 * i;
         number /= 10;
     }
 
-    int num10 = 11 - (sum % 11);
+    var num10 = 11 - (sum % 11);
 
-    if (num10 == 10)
+    string lastNumber = num10 switch
     {
-        return "X";
-    }
-    else
-    {
-        return num10.ToString();
-    }
+        10 => "X",
+        11 => "0",
+        _ => num10.ToString()
+    };
 
+    return lastNumber;
 }
